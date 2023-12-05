@@ -126,7 +126,7 @@ public class GoTreeBuilder {
         Path goModAbsDir = null;
         try {
             goModAbsDir = prepareGoModAbs();
-            GoScanWorkspaceCreator goScanWorkspaceCreator = new GoScanWorkspaceCreator(executablePath, projectDir, targetDir, goModAbsDir, env, logger);
+            GoScanWorkspaceCreator goScanWorkspaceCreator = new GoScanWorkspaceCreator(projectDir, targetDir, goModAbsDir, env, logger);
             Files.walkFileTree(projectDir, goScanWorkspaceCreator);
         } finally {
             if (goModAbsDir != null) {
