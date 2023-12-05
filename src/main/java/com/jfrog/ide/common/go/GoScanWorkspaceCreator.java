@@ -28,7 +28,7 @@ public class GoScanWorkspaceCreator implements FileVisitor<Path> {
     private final Log logger;
 
     public GoScanWorkspaceCreator(String executablePath, Path sourceDir, Path targetDir, Path goModAbsDir, Map<String, String> env, Log logger) {
-        this.goDriver = new GoDriver(executablePath, env, goModAbsDir.toFile(), logger);
+        this.goDriver = new GoDriver("", env, goModAbsDir.toFile(), logger);
         this.sourceDir = sourceDir;
         this.targetDir = targetDir;
         this.logger = logger;

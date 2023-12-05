@@ -176,7 +176,7 @@ public class GoTreeBuilder {
     public DepTree buildTree() throws IOException {
         File tmpDir = createGoWorkspace().toFile();
         try {
-            GoDriver goDriver = new GoDriver(executablePath, env, tmpDir, logger);
+            GoDriver goDriver = new GoDriver("", env, tmpDir, logger);
             if (!goDriver.isInstalled()) {
                 throw new IOException("Could not scan the Go project dependencies, because the Go executable is not in the PATH.");
             }
