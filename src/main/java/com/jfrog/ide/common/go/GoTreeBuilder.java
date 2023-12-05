@@ -33,13 +33,11 @@ public class GoTreeBuilder {
     private static final String GO_SOURCE_CODE_PREFIX = "github.com/golang/go:";
     static final Version MIN_GO_VERSION = new Version("1.16");
     private final Map<String, String> env;
-    private final String executablePath;
     private final Path projectDir;
     private final String descriptorFilePath;
     private final Log logger;
 
-    public GoTreeBuilder(String executablePath, Path projectDir, String descriptorFilePath, Map<String, String> env, Log logger) {
-        this.executablePath = executablePath;
+    public GoTreeBuilder(Path projectDir, String descriptorFilePath, Map<String, String> env, Log logger) {
         this.projectDir = projectDir;
         this.descriptorFilePath = descriptorFilePath;
         this.logger = logger;

@@ -42,7 +42,7 @@ public class GoTreeBuilderTest {
 
         try {
             Path projectDir = GO_ROOT.resolve("project1");
-            GoTreeBuilder treeBuilder = new GoTreeBuilder(null, projectDir, projectDir.resolve("go.mod").toString(), null, log);
+            GoTreeBuilder treeBuilder = new GoTreeBuilder(projectDir, projectDir.resolve("go.mod").toString(), null, log);
             DepTree dt = treeBuilder.buildTree();
             validateDependencyTreeResults(expected, dt);
         } catch (IOException ex) {
@@ -60,7 +60,7 @@ public class GoTreeBuilderTest {
         }};
         try {
             Path projectDir = GO_ROOT.resolve("project2");
-            GoTreeBuilder treeBuilder = new GoTreeBuilder(null, projectDir, projectDir.resolve("go.mod").toString(), null, log);
+            GoTreeBuilder treeBuilder = new GoTreeBuilder(projectDir, projectDir.resolve("go.mod").toString(), null, log);
             DepTree dt = treeBuilder.buildTree();
             validateDependencyTreeResults(expected, dt);
         } catch (IOException ex) {
@@ -79,7 +79,7 @@ public class GoTreeBuilderTest {
         }};
         try {
             Path projectDir = GO_ROOT.resolve("project3");
-            GoTreeBuilder treeBuilder = new GoTreeBuilder(null, projectDir, projectDir.resolve("go.mod").toString(), null, log);
+            GoTreeBuilder treeBuilder = new GoTreeBuilder(projectDir, projectDir.resolve("go.mod").toString(), null, log);
             DepTree dt = treeBuilder.buildTree();
             validateDependencyTreeResults(expected, dt);
         } catch (IOException ex) {
@@ -98,7 +98,7 @@ public class GoTreeBuilderTest {
         }};
         try {
             Path projectDir = GO_ROOT.resolve("project4");
-            GoTreeBuilder treeBuilder = new GoTreeBuilder(null, projectDir, projectDir.resolve("go.mod").toString(), null, log);
+            GoTreeBuilder treeBuilder = new GoTreeBuilder(projectDir, projectDir.resolve("go.mod").toString(), null, log);
             DepTree dt = treeBuilder.buildTree();
             validateDependencyTreeResults(expected, dt);
         } catch (IOException ex) {
@@ -114,7 +114,7 @@ public class GoTreeBuilderTest {
         Map<String, Integer> expected = new HashMap<>();
         try {
             Path projectDir = GO_ROOT.resolve("project5");
-            GoTreeBuilder treeBuilder = new GoTreeBuilder(null, projectDir, projectDir.resolve("go.mod").toString(), null, log);
+            GoTreeBuilder treeBuilder = new GoTreeBuilder(projectDir, projectDir.resolve("go.mod").toString(), null, log);
             DepTree dt = treeBuilder.buildTree();
             validateDependencyTreeResults(expected, dt);
         } catch (IOException ex) {
@@ -128,7 +128,7 @@ public class GoTreeBuilderTest {
     @Test
     public void testCreateDependencyTree6() {
         Path projectDir = GO_ROOT.resolve("project6");
-        GoTreeBuilder treeBuilder = new GoTreeBuilder(null, projectDir, projectDir.resolve("go.mod").toString(), null, log);
+        GoTreeBuilder treeBuilder = new GoTreeBuilder(projectDir, projectDir.resolve("go.mod").toString(), null, log);
         assertThrows(IOException.class, treeBuilder::buildTree);
     }
 
@@ -139,7 +139,7 @@ public class GoTreeBuilderTest {
             put("github.com/jfrog/jfrog-client-go:0.26.1", 8);
         }};
         Path projectDir = GO_ROOT.resolve("embedProject");
-        GoTreeBuilder treeBuilder = new GoTreeBuilder(null, projectDir, projectDir.resolve("go.mod").toString(), null, log);
+        GoTreeBuilder treeBuilder = new GoTreeBuilder(projectDir, projectDir.resolve("go.mod").toString(), null, log);
         DepTree depTree = treeBuilder.buildTree();
         validateDependencyTreeResults(expected, depTree);
     }
